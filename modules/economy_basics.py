@@ -80,16 +80,16 @@ class EconomyBasics(commands.Cog):
 
         embed = Embed(color=discord.Color(0x008cff))
         embed.set_author(name=user.display_name, icon_url=user.display_avatar.url)
-        embed.description = f"**Cash**: B$ {yes['money']:,.2f}\n"
+        embed.description = f"**Cash**: £{yes['money']:,.2f}\n"
 
         # now get the cool wallets
         total = yes["money"]
         thej = ""
         for name, value in yes["wallets"].items():
-            thej += f"**{name}**: B$ {value:,.2f}\n"
+            thej += f"**{name}**: £{value:,.2f}\n"
             total += value
         
-        embed.description += f"{thej}**Total**: B$ {total:,.2f}"
+        embed.description += f"{thej}**Total**: £{total:,.2f}"
 
         await ctx.send(embed=embed)
 
@@ -108,14 +108,13 @@ class EconomyBasics(commands.Cog):
             min = m["work_min"]
             max = m["work_max"]
 
-        # getting B$ 36.81 wouldn't look nice
+        # getting £36.81 wouldn't look nice
         moneys = random.randint(int(min), int(max))
         replies = [
-            f"You saved entire lelclub by throwing poop at people and got B$ {moneys} from government",
-            f"you exploded thousands of things and magically got B$ {moneys}",
-            f"you did ***something*** and got B$ {moneys}",
-            f"you said \"flying spaghetti monster please give me lelgolds :place_of_worship: :place_of_worship: :place_of_worship:\" and magically got B$ {moneys}",
-            f"you printed monis and got B$ {moneys}",
+            f"you exploded thousands of things and magically got £{moneys}",
+            f"you did ***something*** and got £{moneys}",
+            f"you said \"[insert your god here] please give me lelgolds :place_of_worship: :place_of_worship: :place_of_worship:\" and magically got £{moneys}",
+            f"you printed monis and got £{moneys}",
         ]
 
         # this does something 
@@ -172,7 +171,7 @@ class EconomyBasics(commands.Cog):
             self.update_leaderboard(ctx.author.id)
             self.update_leaderboard(user.id)
             
-            embed = Embed(description=f"Successfully transfered B$ {amount:,.2f} to {user.mention}.",
+            embed = Embed(description=f"Successfully transfered £{amount:,.2f} to {user.mention}.",
                           color=discord.Color(0x3eba49))
             embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url)
             await ctx.send(embed=embed)
@@ -252,7 +251,7 @@ class EconomyBasics(commands.Cog):
             embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url)
             for user, value in chunk.items():
                 bruh += 1
-                embed.description += f"**{bruh}.** <@{user}>: B$ {value:,.2f}\n"
+                embed.description += f"**{bruh}.** <@{user}>: £{value:,.2f}\n"
             embeds.append(embed)
 
         # Sends first embed with the buttons, it also passes the embeds list into the View class.

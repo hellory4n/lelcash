@@ -100,51 +100,6 @@ class Items(commands.Cog):
                               color=discord.Color(0xff4865))
                 await modal_inter.response.send_message(embed=embed)
                 return
-            
-            # make sure this isn't the resource system
-            very_illegal_names = [
-                "Fard City Coal",
-                "Lelwoon Iron and Obamium",
-                "Switzerland 2.0 Obamium",
-                "New Soodland Iron and Obamium",
-                "New Bob Issues Rare Materials",
-                "Southern BOLG Rare Materials",
-                "Capital Coal and Obamium",
-                "Thaizsanches Coal",
-                "BOLG Uranium and Iron",
-                "r/lelcity Oil and Natural Gas",
-                "Breat Gritain Coal",
-                "Breat Gritain Wood",
-                "Claps Wood",
-                "New Lelcity Coal",
-                "Berkelium Iron and Obamium",
-                "Berkelium Southern Potatos",
-                "Berkelium Northern Potatos",
-                "Berkelium Coal",
-                "Desperatetopia Coal",
-                "Soodland Coal and Oil",
-                "Poop HQ Agonium and Oil",
-                "Haha Funni City Obamium and Potatos",
-                "Ben State Potatos",
-                "Coal",
-                "Iron",
-                "Obamium",
-                "Diamonds",
-                "Gold",
-                "Uranium",
-                "Oil",
-                "Natural Gas",
-                "Wood",
-                "Potatos",
-                "Agonium"
-            ]
-
-            if name in very_illegal_names:
-                embed = Embed(title="Error",
-                              description=f"You can't use that name! (this name is part of the resource system)",
-                              color=discord.Color(0xff4865))
-                await modal_inter.response.send_message(embed=embed)
-                return
 
             # make sure things the price and stock are valid
             price = 0
@@ -210,7 +165,7 @@ class Items(commands.Cog):
 
             embed = Embed(description=f"Successfully created item `{name}`", color=discord.Color(0x3eba49))
             embed.set_author(name=modal_inter.author.display_name, icon_url=modal_inter.author.display_avatar.url)
-            embed.add_field(name="Price", value=f"B$ {price:,.2f}", inline=True)
+            embed.add_field(name="Price", value=f"£{price:,.2f}", inline=True)
             embed.add_field(name="Description", value=description, inline=True)
             embed.add_field(name="Stock", value=stock_but_the_user_sees_it, inline=True)
             embed.add_field(name="Wallet", value=wallet_but_the_user_sees_it, inline=True)
@@ -442,7 +397,7 @@ class Items(commands.Cog):
 
             embed = Embed(title=item, color=discord.Color(0x008cff))
             embed.add_field(name="Author", value=f"<@{pain[item]['author']}>", inline=True)
-            embed.add_field(name="Price", value=f"B$ {pain[item]['price']:,.2f}", inline=True)
+            embed.add_field(name="Price", value=f"£{pain[item]['price']:,.2f}", inline=True)
             embed.add_field(name="Description", value=pain[item]['description'], inline=True)
             embed.add_field(name="Stock", value=stock_but_the_user_sees_it, inline=True)
             embed.add_field(name="Wallet", value=wallet_but_the_user_sees_it, inline=True)

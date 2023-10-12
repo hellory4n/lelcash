@@ -72,12 +72,12 @@ class Wallets(commands.Cog):
                     with open(f"data/money/{ctx.author.id}.json", "w") as f:
                         json.dump(pain, f)
                     
-                    embed = Embed(description=f"Successfully deposited B$ {deposit:,.2f} to {wallet}", 
+                    embed = Embed(description=f"Successfully deposited £{deposit:,.2f} to {wallet}", 
                                     color=discord.Color(0x3eba49))
                     embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url)                        
                     await ctx.send(embed=embed)
                 else:
-                    embed = Embed(title="Error", description=f"You only have B$ {pain['money']:,.2f} in cash!", 
+                    embed = Embed(title="Error", description=f"You only have £{pain['money']:,.2f} in cash!", 
                                     color=discord.Color(0xff4865))
                     await ctx.send(embed=embed)
             except:
@@ -118,12 +118,12 @@ class Wallets(commands.Cog):
                     with open(f"data/money/{ctx.author.id}.json", "w") as f:
                         json.dump(pain, f)
                     
-                    embed = Embed(description=f"Successfully withdrawn B$ {withdraw:,.2f} from {wallet}", 
+                    embed = Embed(description=f"Successfully withdrawn £{withdraw:,.2f} from {wallet}", 
                                     color=discord.Color(0x3eba49))
                     embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url)                        
                     await ctx.send(embed=embed)
                 else:
-                    embed = Embed(title="Error", description=f"You only have B$ {pain['wallets'][wallet]:,.2f} in {wallet}!", 
+                    embed = Embed(title="Error", description=f"You only have £{pain['wallets'][wallet]:,.2f} in {wallet}!", 
                                     color=discord.Color(0xff4865))
                     await ctx.send(embed=embed)
             except:
@@ -149,7 +149,7 @@ class Wallets(commands.Cog):
             await ctx.send(embed=embed)
         else:
             # we need to ask the user to confirm cuz yes
-            embed = Embed(description=f"Are you sure you want to delete {wallet}? **B$ {pain['wallets'][wallet]:,.2f}** will be permanently lost!\n\nSend \"y\" to confirm.",
+            embed = Embed(description=f"Are you sure you want to delete {wallet}? **£{pain['wallets'][wallet]:,.2f}** will be permanently lost!\n\nSend \"y\" to confirm.",
                           color=discord.Color(0xff4865))
             embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.display_avatar.url)
             yes = await ctx.send(embed=embed)
